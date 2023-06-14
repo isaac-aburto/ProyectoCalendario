@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8' />
+    <style>
+        .center-inputs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .center-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .smaller-card {
+            max-width: 400px;
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-card">
+        <div class="card text-center smaller-card">
+            <div class="card-header">
+                <h1>Login</h1>
+            </div>
+            <div class="card-body">
+                <div class="form-group center-inputs">
+                    <label for="exampleInputEmail1">Correo</label>
+                    <input type="email" class="form-control" id="idCorreo" aria-describedby="emailHelp" placeholder="Ingrese su correo">
+                </div>
+                <div class="form-group center-inputs">
+                    <label for="exampleInputPassword1">Contraseña</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,4 +1,5 @@
 ﻿
+using ProyectoCalendario.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +13,21 @@ namespace ProyectoCalendario.Controllers
     {
         public ActionResult Index()
         {
-            //using (ModeloCalendarioEntities2 conexion = new ModeloCalendarioEntities2()) {
-     
-            //    //var nombre = conexion.Usuarios.Where(w => w.nombre == "Isaac")
-            //    //    .Select(s => s.nombre)
-            //    //    .FirstOrDefault();
-            //    //ViewData["nombreUsuario"] = nombre;
-            //}
+            using (ModeloCalendarioEntities conexion = new ModeloCalendarioEntities())
+            {
+
+                var nombre = conexion.Usuarios.Where(w => w.nombre == "Isaac")
+                    .Select(s => s.nombre)
+                    .FirstOrDefault();
+                ViewData["nombreUsuario"] = nombre;
+            }
             return View();
         }
-
+        public ActionResult Login()
+        {
+            
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
