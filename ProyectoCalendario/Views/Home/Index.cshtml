@@ -11,6 +11,7 @@
             max-width: 900px;
             margin: 0 auto;
         }
+
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -18,16 +19,19 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 locale: 'es',
                 initialView: 'dayGridMonth',
+                hiddenDays: [0, 6], // Ocultar domingo (0) y sábado (6)
                 dateClick: function (info) {
+                    var date = moment(info.date).isoWeekday();
+                    if (date === 6 || date === 7) { // Sábado o domingo
+                        return; // Salir sin hacer nada
+                    }
+
                     var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
                     var modalTitle = document.getElementById('staticBackdropLabel');
                     var formattedDate = moment(info.date).format('dddd D [de] MMMM [de] YYYY');
-                    modalTitle.innerHTML = 'Reservar Hora - ' + formattedDate;
+                    modalTitle.innerHTML = 'Reservar Horas - ' + formattedDate;
                     modal.show();
-
-
-
-                }
+                },
             });
             calendar.render();
         });
@@ -41,7 +45,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Reservar Hora</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Reservar Horas</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
