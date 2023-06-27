@@ -7,6 +7,16 @@
       <Diagram DiagramId="860fb386be2949d39e051237229b69af" Name="Diagram1">
         <EntityTypeShape EntityType="ModeloCalendarioModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ModeloCalendarioModel.Usuarios" Width="1.5" PointX="4.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloCalendarioModel.Carrera" Width="1.5" PointX="5.625" PointY="4.625" />
+        <EntityTypeShape EntityType="ModeloCalendarioModel.Dia" Width="1.5" PointX="2.125" PointY="6.5" />
+        <EntityTypeShape EntityType="ModeloCalendarioModel.Hora" Width="1.5" PointX="4.375" PointY="6.375" />
+        <EntityTypeShape EntityType="ModeloCalendarioModel.Reserva" Width="1.5" PointX="6.625" PointY="1.25" />
+        <EntityTypeShape EntityType="ModeloCalendarioModel.Sede" Width="1.5" PointX="6.375" PointY="7.75" />
+        <EntityTypeShape EntityType="ModeloCalendarioModel.TipoUsuario" Width="1.5" PointX="2.125" PointY="3.5" />
+        <AssociationConnector Association="ModeloCalendarioModel.FK_Hora_Dia" />
+        <AssociationConnector Association="ModeloCalendarioModel.FK_Reserva_Hora" />
+        <AssociationConnector Association="ModeloCalendarioModel.FK_Reserva_Usuarios" />
+        <AssociationConnector Association="ModeloCalendarioModel.FK_Usuarios_TipoUsuario" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -27,5 +27,11 @@ namespace ProyectoCalendario.Models
     
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<Carrera> Carrera { get; set; }
+        public virtual DbSet<Dia> Dia { get; set; }
+        public virtual DbSet<Hora> Hora { get; set; }
+        public virtual DbSet<Reserva> Reserva { get; set; }
+        public virtual DbSet<Sede> Sede { get; set; }
+        public virtual DbSet<TipoUsuario> TipoUsuario { get; set; }
     }
 }

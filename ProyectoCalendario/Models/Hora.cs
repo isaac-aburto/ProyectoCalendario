@@ -12,26 +12,20 @@ namespace ProyectoCalendario.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuarios
+    public partial class Hora
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuarios()
+        public Hora()
         {
             this.Reserva = new HashSet<Reserva>();
         }
     
-        public int id_usuario { get; set; }
-        public string nombre { get; set; }
-        public string rut { get; set; }
-        public string telefono { get; set; }
-        public string estatura { get; set; }
-        public Nullable<int> edad { get; set; }
-        public string correo { get; set; }
-        public Nullable<int> fk_tipousuario { get; set; }
-        public string fk_carrera { get; set; }
+        public int id_hora { get; set; }
+        public string hora1 { get; set; }
+        public Nullable<int> fk_dia { get; set; }
     
+        public virtual Dia Dia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reserva> Reserva { get; set; }
-        public virtual TipoUsuario TipoUsuario { get; set; }
     }
 }
