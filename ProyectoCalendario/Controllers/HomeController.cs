@@ -23,6 +23,24 @@ namespace ProyectoCalendario.Controllers
             }
             return View();
         }
+        public string HorasAgendadas(string formattedDateInput)
+        {
+            string numero = "0";
+            DateTime fecha;
+            using (ModeloCalendarioEntities conexion = new ModeloCalendarioEntities())
+            {
+                if (DateTime.TryParseExact(formattedDateInput, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fecha))
+                {
+                    DateTime fechaDb = DateTime.ParseExact(fecha.ToString("yyyy-MM-dd HH:mm:ss.fff"), "yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
+
+                     numero = conexion.Reserva.Where(w => w.fecha == fechaDb).Count().ToString();
+
+                    // Resto del código para trabajar con la lista de reservas
+                }
+            }
+            return numero;
+        }
+
 
         public string AgendarHora(string diaSeleccionado)
         {
@@ -65,11 +83,6 @@ namespace ProyectoCalendario.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
     }
 }
